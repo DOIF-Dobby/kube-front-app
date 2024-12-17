@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 /**
  * NextRequest에서 headers를 추출
  */
-export function getHeaders(request: NextRequest) {
+function getHeaders(request: NextRequest) {
   const headers: { [key: string]: string } = {};
 
   request.headers.forEach((value, key) => {
@@ -18,7 +18,7 @@ export function getHeaders(request: NextRequest) {
 /**
  * NextRequest에서 uri를 추출
  */
-export function getApiUri(request: NextRequest) {
+function getApiUri(request: NextRequest) {
   const { pathname } = request.nextUrl;
   return pathname.startsWith("/api") ? pathname.replace("/api", "") : pathname;
 }
